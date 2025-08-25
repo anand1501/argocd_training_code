@@ -5,7 +5,7 @@ metadata:
   labels:
     app: myweb
   name: myweb
-  namespace: defaultn
+  namespace: default
 spec:
   replicas: 1
   selector:

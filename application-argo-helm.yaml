@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argoapphelm1
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  source:
+    helm:
+      releaseName: testhelm
+      parameters:
+        - name: "replicaCount"
+          value: "3"
+        - name: "image.repository"
+          value: "vimal13/apache-webserver-php"
+        - name: "image.tag"
+          value: "latest"
+    repoURL: https://github.com/anand1501/argocd_training_code.git
+    path: argocd-helm-chart/testchart
+    targetRevision: master
+
